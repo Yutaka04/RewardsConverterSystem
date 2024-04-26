@@ -24,4 +24,7 @@ public class RewardValue {
 		return milesValue;
 	}
 
+	public double getMILES_TO_CASH_RATE(){
+		return MILES_TO_CASH_RATE;
+	}
 }

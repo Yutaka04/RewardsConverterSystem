@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Random;
+
 public class RewardValueTests {
 
     @Test
@@ -20,11 +22,18 @@ public class RewardValueTests {
 
     @Test
     void convert_from_cash_to_miles() {
-        assert false;
+        Random random = new Random();
+        double cashValueTest = random.nextInt();
+
+        var rewardValue = new RewardValue(cashValueTest);
+        assertEquals((int) (cashValueTest / rewardValue.getMILES_TO_CASH_RATE()), rewardValue.getMilesValue());
     }
 
     @Test
     void convert_from_miles_to_cash() {
-        assert false;
+        Random random = new Random();
+        int milesValueTest = random.nextInt();
+        var rewardValue = new RewardValue(milesValueTest);
+        assertEquals(milesValueTest * rewardValue.getMILES_TO_CASH_RATE(), rewardValue.getCashValue());
     }
 }
